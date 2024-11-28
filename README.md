@@ -59,6 +59,7 @@ Sommaire :
   ```
   ftp://192.168.31.68:2121
   ```
+  
 
 * d - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte Google dans Gnome :
 
