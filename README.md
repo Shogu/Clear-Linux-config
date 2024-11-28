@@ -101,8 +101,7 @@ Sommaire :
 
 ## **4 - Réglages des navigateurs Opera & Firefox**
 
-* a -Passer Opera en navigateur par défaut dans Gnome : !! à adapter à la version rpm!
-
+* a -Passer Opera en navigateur par défaut dans Gnome : 
   ```
   xdg-settings set default-web-browser com.opera.Opera.desktop
   ```
@@ -118,47 +117,28 @@ Sommaire :
 * c - Editer le raccourci Opera :
       -pour ouvrir un onglet fermé avec `ctrl-q`
       -`ctrl-s` pour `Sélectionner l'onglet actif précédent`
-      -`ctrl-<` pour `Ouvrir ChatGPT dans la barre latérale`
 
-* d - Passer Opera sur `wayland` APRES avoir fait un snap (possible problème de flou) avec le flag `chrome://flags/#ozone-platform-hint` puis activer l'autoclose de xwayland (voir plus bas).
+* d - Passer Opera sur `wayland` avec le flag `chrome://flags/#ozone-platform-hint` puis activer l'autoclose de xwayland (voir plus bas).
   
 * e - Créer les `tuiles` dans la page d'accueil
 
 * f - Extensions Opera :
 
-   1 - [LocalCDN](https://chromewebstore.google.com/detail/localcdn/njdfdhgcmkocbgbhcioffdbicglldapd)
+   1 - [Decentraleyes](https://addons.opera.com/fr/extensions/details/decentraleyes/)
 
-   2 - [Bypass Paywalls](https://github.com/bpc-clone/bpc_updates/releases/tag/latest) (via le 
-   fichier crx en mode développeur)
+   2 - [Raindrop](https://raindrop.io/r/extension/chrome)
 
-   3 - [I don't care about cookies](https://addons.opera.com/extensions/download/i-dont-care-about-cookies/)
+   3 - [uBlock Origin](https://addons.opera.com/fr/extensions/details/ublock/) Penser à désactiver le bloqueur de pub natif d'Opera qui est bien moins performant, puis régler l'extension avec les filtres.
   
-   4 - [Raindrop](https://raindrop.io/r/extension/chrome)
-  
-   5 - [uBlock Origin](https://addons.opera.com/fr/extensions/details/ublock/) Penser à désactiver le bloqueur de pub natif d'Opera qui est bien moins performant, puis régler l'extension avec les filtres. Envisager le mode [MEDIUM](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode) même s'il complique souvent la navigation : chercher un ensemble de règles comme [celui-ci](https://raw.githubusercontent.com/Yuki2718/adblock2/main/medium_mode/dynamic-rules.txt) et les copier dans `Mon filtrage dynamique`, `règles temporaires` : enregistrer puis `appliquer` pour en faire des règles permanentes.
-ATTENTION cela désactive ChatGPT dans la sidebar! 
-  
-   6 - [Cleaner Pro](https://addons.opera.com/fr/extensions/details/cleaner-pro-clear-cache-history/)
-  
-   7 - [Disable HTML5](https://chromewebstore.google.com/detail/disable-html5-autoplay-re/cafckninonjkogajnihihlnnimmkndgf) et activer le preloading dans les options.
-  
-   8 - [h264ify](https://addons.opera.com/fr/extensions/details/h264ify/)
+   4 - [Enhancer for Youtube](https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle?hl=fr) qui intègre leurs fonctions. Le configurer d'un coup en rentrant le code du fichier `youtube_enhancer_conf`
 
-   9 - [Simple Notepad](https://chromewebstore.google.com/detail/simple-notepad/ghnkdbkeniegahdcjeeikjoaapakeomf)
-  
-    ou remplacer Disable HTML5 & h264ify par 10 - [Enhancer for Youtube](https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle?hl=fr) qui intègre leurs fonctions. Le configurer d'un coup en rentrant le code du fichier `youtube_enhancer_conf`
+   5 - [Tiny Suspender](https://chromewebstore.google.com/detail/tiny-suspender/bbomjaikkcabgmfaomdichgcodnaeecf)
   
 
-* g - Codecs vidéos [libffmpeg](https://onedrive.live.com/?authkey=%21AC7ddalBsUiWsUE&id=75D48EF8D3750510%21234&cid=75D48EF8D3750510) pour Opera : à 
-      coller en root dans le dossier suivant si les vidéos en ligne ne marchent pas :
-
-```
-à éditer pour la version rpm!
-```
    
-* h - Désactiver les options inutiles et `Faire defiler les onglets dans l'ordre d'utilisation`
+* g - Désactiver les options inutiles et `Faire defiler les onglets dans l'ordre d'utilisation`
   
-* i - Dans `about:flags`, modifier les options suivantes :
+* h - Dans `about:flags`, modifier les options suivantes :
   
   1 - Sidebar : `opera://flags/#sidebar-site-panel`
 
@@ -215,7 +195,7 @@ ATTENTION cela désactive ChatGPT dans la sidebar!
   26 - Tab Cycler (à désactiver) : `opera://flags/#component-based-tab-cycler`
 
 
-* j - Créer dans la barre latérale d'Opera les sites internet suivants APRES s'être connecté à 
+* i - Créer dans la barre latérale d'Opera les sites internet suivants APRES s'être connecté à 
       Google :
   
      [Google Translate](translate.google.com)
@@ -229,19 +209,13 @@ ATTENTION cela désactive ChatGPT dans la sidebar!
      [Play Livres pour le mode tablette](https://play.google.com/store/books?hl=fr)
 
 
-* k - Extensions pour Firefox :
+* j - Extensions pour Firefox :
 
      [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/)
   
      [Autotab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/)
 
      [Raindrop](https://raindrop.io/r/extension/firefox) et supprimer `Pocket` de Firefox avec `extensions.pocket.enabled` dans `about:config` puis supprimer le raccourci dans la barre.
-  
-     [Keep Notes](https://addons.mozilla.org/fr/firefox/addon/google-keep-notes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-
-     [I Dont' Care About Cookies](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiH4djZpPWGAxVnVaQEHVC4Ah4QFnoECBwQAQ&url=https%3A%2F%2Faddons.mozilla.org%2Ffr%2Ffirefox%2Faddon%2Fi-dont-care-about-cookies%2F&usg=AOvVaw1V3SeotV2aYuif7_jcLW43&opi=89978449)
-  
-     [Clear Browsing Data](https://addons.mozilla.org/fr/firefox/addon/clear-browsing-data/)
   
      [Undo Close Tab Button](https://addons.mozilla.org/firefox/addon/undoclosetabbutton)
 
@@ -265,8 +239,7 @@ browser.sessionstore.interval
 
 * a - Changer le [wallpaper](https://github.com/CubeJ/LinuxWallpaper)
 
-* b - Régler HiDPI sur 200, cacher les dossiers Modèles, Bureau, ainsi que le wallaper et l'image user, augmenter la 
-      taille des icones dossiers.
+
 
 * c - Installer diverses extensions :
   
