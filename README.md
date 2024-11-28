@@ -107,7 +107,7 @@ Sommaire :
 
 ## **4 - Réglages des navigateurs Opera & Firefox**
 
-* a -Passer Opera en navigateur par défaut dans Gnome : 
+* a - Passer Opera en navigateur par défaut dans Gnome : 
   ```
   xdg-settings set default-web-browser com.opera.Opera.desktop
   ```
