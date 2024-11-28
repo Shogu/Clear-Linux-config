@@ -138,75 +138,51 @@ Sommaire :
    
 * g - Désactiver les options inutiles et `Faire defiler les onglets dans l'ordre d'utilisation`
   
-* h - Dans `about:flags`, modifier les options suivantes :
+* h - Dans `about:flags`, désactiver les options suivantes :
   
-  1 - Sidebar : `opera://flags/#sidebar-site-panel`
 
-  2 - Pinboard : `chrome://flags/#pinboard`
+  1 - disable Pinboard : `chrome://flags/#pinboard` 
   
-  3 - Emoji tab : `chrome://flags/#tab-art`
-  
-  4 - UI refresh 2023 : `chrome://flags/#chrome-webui-refresh-2023`
-  
-  5 - Devtools : `chrome://flags/#devtools-tab-target`
-  
-  6 - Sync banner : `chrome://flags/#startpage-sync-banner`
-  
-  7 - Check d'extension : `chrome://flags/#safety-check-extension`
-  
-  8 - Wallet : `chrome://flags/#wallet-selector` & `chrome://flags/#native-crypto-wallet`
-  
-  9 - Autofill : `opera://flags/#show-autofill-type-predictions`
-  
-  10 - Caption : `chrome://flags/#enable-live-caption-multilang` & `chrome://flags/#enable- 
+  2 - disable Emoji tab : `chrome://flags/#tab-art`
+      
+  3 - disable Sync banner : `chrome://flags/#startpage-sync-banner`
+    
+  4 - disable Wallet : `chrome://flags/#native-crypto-wallet`
+    
+  5 - disable Caption : `chrome://flags/#enable-live-caption-multilang` & `chrome://flags/#enable- 
   accessibility-live-caption`
-  
-  11 - Profile Badging : `chrome://flags/#enable-enterprise-profile-badging`
-  
-  12 - Support tool : `chrome://flags/#support-tool`
-  
-  13 - Reading mode Screen2x : `chrome://flags/#read-anything-with-screen2x`
-  
-  14 - GPU Rasterization : `chrome://flags/#enable-gpu-rasterization` & `chrome://flags/#ui-enable-shared-image-cache-for-gpu` & `chrome://flags/#canvas-oop-rasterization`
-  
-  15 - Memory Saver : `opera://flags/#memory-saver` & `chrome://flags/#memory-saver-multi-state-mode` puis activer les options.
-  
-  16 - Split Screen : `opera://flags/#split-screen`
-  
-  17 - Disable accessibility : `chrome://flags/#enable-auto-disable-accessibility`
-  
-  18 - Scrollbar old school : `chrome://flags/#component-based-scrollbar`
-  
-  19 - Drag des groupes & onglets : `chrome://flags/#drag-multiple-tabs`
-  
-  20 - Scroll dans la barre d'onglets : `chrome://flags/#scrollable-tab-strip`
-  
-  21 - Dark thème pour les sites : `opera://flags/#enable-force-dark-from-settings`
-  
-  22 - Activer le protocole QUIC : `opera://flags/#enable-quic`
-  
-  23 - Parallel Downloading : `opera://flags/#enable-parallel-downloading`
+      
+  6 - disable Reading mode Screen2x : `chrome://flags/#read-anything-with-screen2x`
 
-  24 - Oop video decoding : `opera://flags/#use-out-of-process-video-decoding`
+  7 - disable Drag des groupes & onglets : `chrome://flags/#drag-multiple-tabs`
+  
 
-  25 - Update au lancement : `chrome://flags/#sync-poll-immediately-on-every-startup` à désactiver (vérifier si la 
-       synchronisation se fait quand même)
+  et *activer* celles-ci :
+  
 
-  26 - Tab Cycler (à désactiver) : `opera://flags/#component-based-tab-cycler`
+  8 - enable Sidebar : `opera://flags/#sidebar-site-panel`
+  
+  9 - enable GPU Rasterization : `chrome://flags/#enable-gpu-rasterization` & `chrome://flags/#canvas-oop-rasterization`
+  
+  10 - enable Memory Saver : `opera://flags/#memory-saver` & `chrome://flags/#memory-saver-multi-state-mode` puis activer les options.
+    
+  11 - enable Auto-Disable accessibility : `chrome://flags/#enable-auto-disable-accessibility`
+     
+  12 - enable Dark thème pour les sites : `opera://flags/#enable-force-dark-from-settings` & `chrome://flags/#enable-force-dark`
+    
+  13 - enable Parallel Downloading : `opera://flags/#enable-parallel-downloading`
 
+  14 - enable Oop video decoding : `opera://flags/#use-out-of-process-video-decoding`
+
+ 
 
 * i - Créer dans la barre latérale d'Opera les sites internet suivants APRES s'être connecté à 
       Google :
   
-     [Google Translate](translate.google.com)
-  
      [Gmail](https://mail.google.com/mail/u/0/?pli=1#inbox)
-  
-     [Keep](keep.google.com)
-  
+    
      [Raindrop](https://app.raindrop.io/my/0)
   
-     [Play Livres pour le mode tablette](https://play.google.com/store/books?hl=fr)
 
 
 * j - Extensions pour Firefox :
