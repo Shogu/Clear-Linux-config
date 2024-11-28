@@ -213,49 +213,28 @@ browser.sessionstore.interval
 
 ## **5 - Réglages de l'UI Gnome Shell**
 
-* a - Changer le [wallpaper](https://github.com/CubeJ/LinuxWallpaper)
-
-
-
-* c - Installer diverses extensions :
+* a - Installer diverses extensions :
   
     1 - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
 
-    2 - [Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/) puis la désactiver (voir script d'activation plus bas)
+    2 - [Alphabetical Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/) puis la supprimer : l'ordre alphabetique persistera.
 
-    3 - [Alphabetical Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/) puis la supprimer : l'ordre alphabetique persistera.
-
-    4 - [Mute/unmute](https://extensions.gnome.org/extension/5088/muteunmute/)
-
-    5 - [Screen Rotate](https://extensions.gnome.org/extension/5389/screen-rotate/)) puis la désactiver (voir script d'activation plus bas)
+    3 - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
   
-    6 - [AutoActivities](https://extensions.gnome.org/extension/5500/auto-activities/)
-  
-    7 - [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
+    4 - [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
     
-    8 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
+    5 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
   
-    9 - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
-  
-    10 - [Frequency Boost Switch](https://extensions.gnome.org/extension/4792/frequency-boost-switch/)
-  
-    11 - [Quick Settings Extension](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
-  
-    12 - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
-  
-    13 - [Impatience](https://extensions.gnome.org/extension/277/impatience/)
-  
-    14 - [NoAnnoyance](https://extensions.gnome.org/extension/6109/noannoyance-fork/)
-
-    15 - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)
-  
-    16 - [Power Profile Indicator](https://extensions.gnome.org/extension/6679/power-profile-indicator/)
-  
-    17 - [Privacy Quick Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la 
+    6 - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
+    
+    7 - [Hot Edge](https://extensions.gnome.org/extension/4222/hot-edge/)
+    
+    8 - [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/)
+    
+    9 - [Privacy Quick Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la 
          supprimer une fois les réglages réalisés.
 
 
-* d - Installer [Nautilus-admin](https://download.copr.fedorainfracloud.org/results/tomaszgasior/mushrooms/fedora-38-x86_64/06214967-nautilus-admin/) puis lancer la commande ```nautilus -q``` pour relancer Fichiers
 
 * e - Raccourcis à éditer dans Gnome : mettre ```x-terminal-emulator``` à la place de la touche Exposant, et la 
       commande ```flatpak run net.nokyan.Resources``` pour la combinaison ```ctrl-alt-supp```.
@@ -263,17 +242,8 @@ browser.sessionstore.interval
 * f - Passer Gnome-text-editor en `theme LIGHT`, puis  régler gnome-terminal (police, raccourci copier-coller, 
       curseur, et surtout `palette prédéfinie=Gnome Clair` & `Désactiver la barre de défilement`.
 
-
-* g - Supprimer le décompte de 60 secondes lors de l'extinction du PC et désactiver dans Settings l'extinction par le 
-      bouton Power :
   
-```
-gsettings set org.gnome.SessionManager logout-prompt false
-```
-  
-* h - Changer les polices d'écriture pour `Noto Sans` en 11 ?
-  
-* i - Améliorer  Celluloid :
+* g - Améliorer  Celluloid :
     - inscrire `hwdec=auto-safe` dans Paramètres --> Divers --> Options supplémentaires
     - installer les deux scripts lua suivants pour la musique :
       [Visualizer](https://www.dropbox.com/scl/fi/bbwlvfhtjnu8sgr4yoai9/visualizer.lua?rlkey=gr3bmjnrlexj7onqrxzjqxafl&dl=0)
@@ -282,11 +252,6 @@ gsettings set org.gnome.SessionManager logout-prompt false
   
 * j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le palcer dans `~/`, puis 
       changer les polices au profit de `Noto Sans 12` ou `Monospace 11`
-  
-
-* k - Modifier le thème de `Jdownloader` avec ce dépôt [Github](https://calendar.google.com/calendar/u/0/r?pli=1) : 
-      (attention, les polices et sont trop grosses et rendent la lecture trop difficile, ou alors avec les icons 
-      `flat` et le thème `Black Star` puis supprimer les bannières, menus & colonnes inutiles.
 
 
 * l - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
@@ -294,82 +259,41 @@ gsettings set org.gnome.SessionManager logout-prompt false
       lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
 
-  
-* m - Télécharger le script de `bascule Bluetooth` `.bluetooth_toggle` pour activer/désactiver le service bluetooth à 
-      la volée : en faire un raccourci avec l'éditeur de menu et mettre l'icone 
-      `/usr/share/icons/Adwaita/scalable/devices/phone.svg`.
 
 
 
 
-
-               ******** Rajouter des toggles au menu de Gnome-Shell ********
-  
-![](https://i.postimg.cc/FR3wnnV6/Capture-d-cran-du-2024-06-24-19-25-39.png) 
-![](https://i.postimg.cc/L5SGdBy8/Capture-d-cran-du-2024-06-24-19-26-15.png) 
-
-
-
-  
-* n - Télécharger le script `.activer_tiling.sh` pour activer/désactiver l'extension de `Tiling`, puis rendre le script exécutable et créer  le toggle avec Custom 
-      Command Toggle :
-  ![Toggle Tiling](https://i.ibb.co/CMsJQpK/Capture-d-cran-du-2024-06-19-14-32-27.png)
-
-
-* o - Créer le `Mode Tablette` (à compléter avec les logiciels Wike, Librum, et un raccourci Google Play Livres) : créer un toggle Gnome-shell qui lance le script 
-      `.tablette.sh` qui va activer l'extension  Screen-rotate (qu'il faut régler en rajoutant l'option Manual) et le clavier virtuel, ou les désactiver s'ils 
-      sont en fonction, et lui attribuer le raccourci `pda-symbolic`.
+******** Rajouter des toggles au menu de Gnome-Shell ********
      
     
-* p - Créer un toggle `Powertop` qui va lancer powertop en `auto-tune` pour économiser encore plus de batterie, et baisser la luminosité sur 5% : rentrer cette 
+* p - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette 
       commande pour le toggle activé :
   
   ```
-  pkexec powertop --auto-tune && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 5>"()
+  pkexec powertop --auto-tune && pkexec sh -c ‘echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo’ && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 5>"() && notify-send “Mode Powertop activé”
   ```
   
      Et cette commande pour le toggle désactivé :
       
   ```
-  gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method 
-  org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " 
-  <int32 2O>"()
+  pkexec sh -c ‘echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo’ && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 2O>"() && && notify-send “Turbo Boost réactivé”
   ```
-     Enfin rentrer le nom de l'icone : `thunderbolt-symbolic` 
+     Enfin rentrer le nom de l'icone : `power-profile-power-saver-symbolic` 
 
  
-* q - Créer un toggle `luminosité` pour passer à 70 ou 20% :  attribuer l'icone `view-reveal-symbolic` puis passer les arguments suivants :
-  
-  ```
-  gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path 
-  /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set 
-  org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 70>"()
+* q - Créer un toggle `Performance` pour switcher de Powersave à Performance :
 
-  gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path 
-  /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set 
-  org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 20>"()
+  ```
+  echo performance | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Performance activé”
   ```
 
-  * l - Créer un toggle "No Touchscreen" :
-    
-    ```
-    echo 'i2c-ELAN9008:00' | pkexec tee /sys/bus/i2c/drivers/i2c_hid_acpi/unbind > /dev/null
-    ```
-    ```
-    echo 'i2c-ELAN9008:00' | pkexec tee /sys/bus/i2c/drivers/i2c_hid_acpi/bind > /dev/null                         
-    ```
+  ```
+  echo powersave | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Powersave activé”
+  ```
 
 
 ## **6 - Allégement du système**
 
-* a - Supprimer les logiciels inutiles avec Gnome-software
-  
-* b - Supprimer les sources inutiles dans Gnome-software :
-  
-  ```
-  sudo rm /etc/yum.repos.d/google-chrome.repo 
-  /etc/yum.repos.d/_copr\:copr.fedorainfracloud.org\:phracek\:PyCharm.repo
-  ```
   
 * c - Supprimer les autostarts inutiles :
   
