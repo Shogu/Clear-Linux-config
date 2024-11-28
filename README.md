@@ -238,7 +238,7 @@ browser.sessionstore.interval
     9 - [Privacy Quick Settings](https://extensions.gnome.org/extension/4491/privacy-settings-menu/) puis la 
          supprimer une fois les réglages réalisés.
   
-   10 - [Windows is Ready Remover](https://extensions.gnome.org/extension/1007/window-is-ready-notification-remover)
+   10 - [Grand Theft Focus](https://extensions.gnome.org/extension/5410/grand-theft-focus/)
 
 
 
@@ -297,7 +297,7 @@ browser.sessionstore.interval
   echo powersave | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Powersave activé”
   ```
   
-  Icone :  `power-profile-
+  Icone :  `power-profile-performance-symbolic`
 
 
 ## **6 - Allégement du système**
