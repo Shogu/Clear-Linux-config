@@ -112,7 +112,7 @@ Sommaire :
   ```
   flatpak install flathub page.codeberg.libre_menu_editor.LibreMenuEditor
   ```
-  puis éditer le chemin du raccourci avec  `Opera @@u --lang=fr %U @@`
+  puis remplacer le chemin du raccourci par  `/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=opera --file-forwarding com.opera.Opera @@u --lang=fr %U @@`
   
 
 * c - Editer le raccourci Opera :
