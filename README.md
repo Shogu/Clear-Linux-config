@@ -34,7 +34,7 @@ Sommaire :
   mitigations=off quiet loglevel=3 vt.global_cursor_default=0 systemd.show_status=false
   ```
   
-* d - ATTENTION : le mot de passe user doit pouvoir pêtre saisi sur un clavier US ET un clavier FR : ne pas metre de a ou de z ou de m...
+* d - ATTENTION : le mot de passe user doit pouvoir être saisi sur un clavier US ET un clavier FR : ne pas metre de a ou de z ou de m...
 
 
 
@@ -47,7 +47,8 @@ Sommaire :
   flatpak install flathub com.mattjakeman.ExtensionManager io.github.giantpinkrobots.flatsweep net.nokyan.Resources 
   org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments
   ```
-   + Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal.
+
+ Y ajouter `Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
   
   
 * b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
