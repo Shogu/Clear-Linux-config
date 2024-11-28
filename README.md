@@ -114,11 +114,9 @@ Sommaire :
   puis remplacer le chemin du raccourci par  `/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=opera --file-forwarding com.opera.Opera @@u --lang=fr %U @@`
   
 
-* c - Editer le raccourci Opera :
-      -pour ouvrir un onglet fermé avec `ctrl-q`
-      -`ctrl-s` pour `Sélectionner l'onglet actif précédent`
+* c - Editer les raccourcis Opera : pour rouvrir un onglet fermé avec `ctrl-q`, & `ctrl-s` pour `Sélectionner l'onglet actif précédent`
 
-* d - Passer Opera sur `wayland` avec le flag `chrome://flags/#ozone-platform-hint` puis activer l'autoclose de xwayland (voir plus bas).
+* d - Passer Opera sur `wayland` avec le flag `chrome://flags/#ozone-platform-hint` & `opera://flags/#wayland-per-window-scaling`, puis activer l'`autoclose` de xwayland (voir plus bas).
   
 * e - Créer les `tuiles` dans la page d'accueil
 
@@ -320,23 +318,6 @@ browser.sessionstore.interval
 
    
 
-* d - Supprimer les logiciels suivants avec le terminal :
-  
-  ```
-  sudo dnf autoremove speech-dispatcher mdadm lvm2 mdadm lvm2 sssd firewalld ibus-libzhuyin 
-  ibus-libpinyin ibus-typing-booster ibus-m17n ibus-hangul ibus-anthy yelp abrt brltty 
-  podman openvpn gnome-weather rygel totem virtualbox* avahi-tools -y
-  ```
-
-  
-* e - Supprimer les flatpaks KDE :
-  
-  ```
-  flatpak remove org.kde.KStyle.Adwaita org.kde.PlatformTheme.QGnomePlatform     
-  org.kde.WaylandDecoration.QAdwaitaDecorations QGnomePlatform-decoration  
-  org.kde.WaylandDecoration.QGnomePlatform-decoration   org.kde.Platform 
-  ```
-
   
 * f - Supprimer et masquer les services inutiles :
   
@@ -442,45 +423,6 @@ systemctl list-unit-files --type=service --state=enabled
   blacklist ELAN:Fingerprint
   ```
 
-* l - EXPERIMENTAL : créer un initramfs plus petit et plus rapide en désactivant des modules inutiles : manipulation à faire à chaque màj du kernel : d'abord désactiver vconsole :
-
-  ```
-  cp /usr/bin/true /usr/lib/systemd/systemd-vconsole-setup
-
-  ```
-     puis créer un fichier de configuration `dracut` (ou dracut --regenerate-all), ou télécharger directement le fichier dracut.conf.
-
-  ```
-  sudo gnome-text-editor /etc/dracut.conf.d/dracut.conf
-  ```
-  
-     et copier-coller ces options de configuration :
-
-  ```
-  # Configuration du fichier dracut.conf pour obtenir un initrd le plus léger possible
-
-  omit_dracutmodules+=" multipath nss-softokn memstrack usrmount mdraid dmraid debug selinux fcoe fcoe-uefi terminfo 
-  watchdog crypt-gpg crypt-loop cdrom pollcdrom pcsc ecryptfs rescue watchdog-module network cifs nfs nbd brltty 
-  busybox rdma i18n isci wacom "
-  omit_drivers+=" nvidia amd nouveau "
-  filesystems+=" ext4 btrfs fat "
-  # Ne pas exécuter fsck
-  nofscks="yes"
-  # Niveau de journalisation
-  stdlog="0"
-  # Compression de l'initramfs
-  compress="zstd"
-  compress_options="-4"
-  # Mode silencieux
-  quiet="yes"
-  # Autres options
-  force="yes"
-  hostonly="yes"
-  ```
-  
-     Vérifier l'output après sudo dracut : `sudo lsinitrd -m`
-
-
   
 * m - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 
@@ -490,49 +432,13 @@ systemctl list-unit-files --type=service --state=enabled
 ## **7 - Optimisation du système**
 
 
-* a - Désactiver `SElinux` :
-  
-  ```
-  sudo gnome-text-editor /etc/selinux/config
-  ```
-     et saisir ```SELINUX=disabled```
-  
-     Vérifier la désactivation après reboot avec la commande ```sestatus```
-
-     Enfin supprimer les labels SElinux avec :
- 
-  ```
-  sudo find / -print0 | xargs -r0 setfattr -x security.selinux 2>/dev/null
-  ```
-  
-
-* b - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
+* a - Passer `xwayland` en autoclose : sur dconf-editor, modifier la clé suivante.
   
   ```
   org.gnome.mutter experimental-features
   ```
 
 
-* c - Optimiser le kernel :
-  
-  ```
-  sudo gnome-text-editor /etc/kernel/cmdline
-  ```
-
-     Puis saisir :
-  
-  ```
-  mitigations=off selinux=0 cgroup_disable=rdma nmi_watchdog=0
-  ```
-     puis reinstaller le noyau avec la commande suivante :
-  
-  ```
-  sudo kernel-install add $(uname -r) /lib/modules/$(uname -r)/vmlinuz
-  ```
-
-  ```
-  sudo dracut
-  ```
   
      Au reboot, contrôler le fichier de boot de `systemd-boot` avec la commande :
   
@@ -547,68 +453,8 @@ systemctl list-unit-files --type=service --state=enabled
   
   ```
 
-* e - Editer le mount des partitions BTRFS `/` et `/home` avec la commande :
 
-  ```
-  sudo gnome-text-editor /etc/fstab
-  ```
-     puis saisir les flags suivants :
-
-  ```
-  noatime,commit=120,discard=async,space_cache=v2
-   
-  ```
-  Contrôler avec `cat /etc/fstab` après un reboot.
-
-   
-* f - Mettre les fichiers temporaires en RAM :
-  
-  ```
-  sudo gnome-text-editor /etc/fstab
-  ```
-     puis saisir :
-  
-  ```
-  tmpfs /tmp tmpfs defaults,noatime,mode=1777,nosuid,size=4196M 0 0
-  ```
-
-    Contrôler avec `cat /etc/fstab` après un reboot.
-  
-
-* g - Activer et régler le pare-feu :
-  
-  ```sudo systemctl enable ufw```
-  ```sudo ufw logging off```
-  ```sudo systemctl start ufw```
-  ```sudo ufw default deny incoming```
-  ```sudo ufw default allow outgoing```
-  
-     pour nicotine :
-  ```sudo ufw allow in 2232/tcp```
-
-     pour Fragments :
-  ```sudo ufw allow in 51413/tcp```
-  ```sudo ufw allow in 51413/udp```
-
-     pour le serveur FTP du SSD de la TV Android :
-  ```
-  sudo ufw allow 2121/tcp
-  sudo ufw allow 1024:1048/tcp
-  sudo ufw enable
-  sudo ufw status
-  ```
-
-
-* h - Modifier le `swappiness` :
-  
-  ```
-  echo vm.swappiness=5 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-  echo vm.vfs_cache_pressure=50 | sudo tee -a /etc/sysctl.d/99-sysctl.conf
-  sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
-  ```
-
-  
-* i - Accélérer `DNF` :
+* i - Accélérer `swupd` :
   
   ```
   echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
