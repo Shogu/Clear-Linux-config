@@ -34,14 +34,16 @@ Sommaire :
   mitigations=off quiet loglevel=3 vt.global_cursor_default=0 systemd.show_status=false
   ```
   
-* d - ATTENTION : le mot de passe user doit pouvoir être saisi sur un clavier US ET un clavier FR : ne pas metre de a ou de z ou de m...
+* d - ATTENTION : le mot de passe user doit pouvoir être saisi sur un clavier US ET un clavier FR : ne pas metre de a 
+      ou de z ou de m...
 
 
 
 
 ## **2 - Réglages de base**
 
-* a - dès le reboot, penser à installer les applications Flatpak, sans quoi le bug avec curl empêche de la faire plus tard (voir cette page : https://community.clearlinux.org/t/flatpak-issues-after-42630-update/10166) :
+* a - dès le reboot, penser à installer les applications Flatpak, sans quoi le bug avec curl empêche de le faire plus 
+      tard (voir cette page : https://community.clearlinux.org/t/flatpak-issues-after-42630-update/10166) :
 
    ```
   flatpak install flathub com.mattjakeman.ExtensionManager io.github.giantpinkrobots.flatsweep net.nokyan.Resources 
@@ -51,23 +53,27 @@ Sommaire :
      Y ajouter `Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
   
   
-* b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
+* b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + 
+      stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
   
 
-* c - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
+* c - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
+      créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
   
   ```
   ftp://192.168.31.68:2121
   ```
   
 
-* d - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte Google dans Gnome :
+* d - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte 
+      Google dans Gnome :
 
   ```
   rm -v ~/.local/share/keyrings/*.keyring && reboot
   ```
 
-* e - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et la mettre dans /home. Puis permettre le login automatique en             contournant comme suit le bug de Clear Linux :
+* e - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et 
+      la mettre dans /home. Puis permettre le login automatique en contournant comme suit le bug de Clear Linux :
 
   ```
   sudo gnome-text-editor  /etc/gdm/custom.conf
