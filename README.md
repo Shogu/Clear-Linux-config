@@ -48,7 +48,7 @@ Sommaire :
   org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments
   ```
 
- Y ajouter `Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
+     Y ajouter `Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
   
   
 * b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
