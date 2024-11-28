@@ -1,13 +1,5 @@
 # Clear-Linux-config
 Memo de configuration pour mon Clear Linux sur ZENBOOK 13
-
-
-
-# Fedora_config pour ASUS ZENBOK S13 FLIP OLED
-
-
-Tips &amp; tricks de configuration de Fedora 39
-
   
 Sommaire :
 
@@ -34,140 +26,77 @@ Sommaire :
 
 * a - Désactiver `Secure Boot` dans le Bios (F2)
 
-* b - Désactiver la caméra dans le bios
+* b - Désactiver la caméra et le lecteur de carte dans le bios
 
-* c - Graver l'iso `Fedora-Everything-netinst`
-
-* d - Utiliser `systemd-boot` plutot que Grub : passer l'argument suivant dans le kernel de 
-      l'iso  d'installation (en pressant Espace au boot) juste avant QUIET
+* c - Passer les arguments suivants dans le kernel pour ne pas brider le processeur & pour un démarrage silent boot :
   
   ```
-  inst.sdboot
+  mitigations=off quiet loglevel=3 vt.global_cursor_default=0 systemd.show_status=false
   ```
-
-
+  
+* d - ATTENTION : le mot de passe user doit pouvoir pêtre saisi sur un clavier US ET un clavier FR : ne pas metre de a ou de z ou de m...
 
 
 
 
 ## **2 - Réglages de base**
 
-* a - Télécharger le fichier `README.MD` et l'ouvrir avec `Marker` pour faciliter la suite des 
-      instructions : penser à régler l'UI de Marker avec les options `cobalt`, `screen_light` 
-      et `mode sombre` :
+* a - dès le reboot, penser à installer les applications Flatpak, sans quoi le bug avec curl empêche de la faire plus tard (voir cette page : https://community.clearlinux.org/t/flatpak-issues-after-42630-update/10166) :
+
+   ```
+  flatpak install flathub com.mattjakeman.ExtensionManager io.github.giantpinkrobots.flatsweep net.nokyan.Resources 
+  org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments
+  ```
+   + Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal.
+  
+  
+* b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
+  
+
+* c - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
   
   ```
-  flatpak install flathub com.github.fabiocolacio.marker
+  ftp://192.168.31.68:2121
   ```
 
-* b - Régler le système avec Paramètres (penser à désactiver les animations dans Accessibilité) puis Ajustements :
-  
-  ```
-  sudo dnf install gnome-tweaks
-  ```
-
-* c - Régler Nautilus & créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque SSD sur la TV Android :
-  
-  ```
-  192.168.31.68:2121
-  ```
-
-* d - Supprimer le mot de passe au démarrage avec le logiciel puis penser à reconnecter le compte Google dans Gnome :
+* d - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte Google dans Gnome :
 
   ```
   rm -v ~/.local/share/keyrings/*.keyring && reboot
   ```
+
+* e - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et la mettre dans /home. Puis permettre le login automatique en             contournant comme suit le bug de Clear Linux :
+
+  ```
+  sudo gnome-text-editor  /etc/gdm/custom.conf
+  ```
+
+     Et saisir :
+
+  ```
+  [daemon]
+  AutomaticLoginEnable=True
+  AutomaticLogin=ogu
+  ```
+
+
+## **3 - Suppression de logiciels**
+
+
+* a - Supprimer les bundles inutiles :
+
+  ```
+  sudo swupd bundle-remove x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
+  ```
+
+* b - Supprimer les entrées des logiciels inutiles mais impossibles à supprimer : lancer Menu Principal et masquer les entrées. En profiter pour mettre l'icone de Gnome-terminal pour Console, et pour renommer les applis.
+
+  Nota : il est possible de supprimer les binaires des logiciels suivants, swupd-repair les remettra en place si besoin :
+  ```
+  cd /usr/bin/ && sudo rm system-config-printer yelp nm-connection-editor gnome-connections gnome-terminal emoji-picker gnome-extensions pavucontrol idle3 idle3.13 simple-scan
+  ```
   
-* e - Installer le plugin dnf `snapper` avant d'utiliser dnf et s'assurer que le plugin installe bien la dépendance snapper :
-  
-  ```
-  sudo dnf install  dnf-plugins-core dnf-plugin-snapper
-  ```
-  
-     puis l'activer avec :
-  
-  ```
-  snapper create-config / 
-  ```
 
-     Compléter avec l'installation du logiciel de sauvegarde BTRFS-Assistant :
-
-  ```
-  sudo dnf install btrfs-assistant
-  ```
-
-
-
-
-
-## **3 - Remplacement et installation de logiciels et codecs**
-
-* a - Ajouter les sources `RPMFusion` :
-  
-     RPMFusion Free
-  ```
-  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E 
-  %fedora).noarch.rpm 
-  ```
-
-     RMPFusion Non free
-  ```
-  sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree- 
-  release-$(rpm -E %fedora).noarch.rpm
-  ```
-  puis
-  
-  ```
-  sudo dnf groupupdate core -y*
-  ```
-
-
-* b - Ajouter le codec `openh264` :
-
-  ```
-  sudo dnf config-manager --enable fedora-cisco-openh264
-  ```
-    
-
-* c - Ajouter les codecs `FFMPEG` & `AV1` :
-
-  ```
-  sudo dnf swap ffmpeg-free ffmpeg --allowerasing && dnf install gstreamer1-plugins-bad-free- extras
-  ```
-
-
-* d - Ajouter le `pilote Intel` d'accélération matérielle :
-
-  ```
-  sudo dnf install intel-media-driver
-  ```
-
-  
-* e - Installer les logiciels Flatpak suivants : nota : utiliser prioritairement les flatpaks 
-      Fedora OU Flathub car les runtimes ne sont pas partagés entre les 2.
-
-  ```
-  flatpak install flathub com.mattjakeman.ExtensionManager io.github.giantpinkrobots.flatsweep net.nokyan.Resources 
-  com.github.fabiocolacio.marker org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments -y
-  ```
-
-    
-* f - Installer les logiciels suivants avec dnf :
-
-  ```
-  sudo dnf install htop dconf-editor bleachbit ufw gnome-tweaks nicotine+ powertop loupe zstd gnome-network-displays ffmpegthumbnailer.x86_64 file-roller profile-cleaner celluloid -y
-  ```
-
-  
-* g - Installer [Opera en rpm](https://www.opera.com/download/get/?partner=www&opsys=Linux&package=RPM)
-
-* h - Installer [Dropbox](https://www.dropbox.com/fr/install-linux)
-
-
-
-
-
-   
 ## **4 - Réglages des navigateurs Opera & Firefox**
 
 * a -Passer Opera en navigateur par défaut dans Gnome : !! à adapter à la version rpm!
