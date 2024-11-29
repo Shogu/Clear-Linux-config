@@ -319,23 +319,11 @@ browser.sessionstore.interval
 * c - Supprimer les autostarts inutiles :
   
   ```
-  sudo rm /etc/xdg/autostart/vmware-user.desktop
-  sudo rm /etc/xdg/autostart/org.gnome.SettingsDaemon.Smartcard.desktop
-  ```
-     et
+  sudo rm -rf /usr/share/gdm/greeter/autostart/orca.desktop
+  sudo rm -rf /usr/share/xdg/autostart/gnome-flackback*
+  sudo rm -rf /usr/share/xdg/autostart/org.clearlinux.initFlathubRepo.desktop
 
   ```
-  cd /usr/share/dbus-1/services/org.gnome.Software.service && sudo mv 
-  org.gnome.Software.service.org.gnome.Software.service_disabled
-  ```
-     puis :
-
-  ```
-  dconf write /org/gnome/software/allow-updates false
-  dconf write /org/gnome/software/download-updates false
-  ```
-
-   
 
   
 * f - Supprimer et masquer les services inutiles :
