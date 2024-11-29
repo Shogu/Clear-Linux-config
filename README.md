@@ -211,6 +211,9 @@ Sommaire :
 browser.sessionstore.interval
 ```
 
+* n - Fouuiller dans cette page :
+  https://wiki.archlinux.org/title/Firefox/Tweaks
+
 
 
 
