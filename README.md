@@ -496,6 +496,9 @@ systemctl list-unit-files --type=service --state=enabled
 
 ## **8 - Maintenance de la distribution**
 
+sudo swupd verify --fix --picky
+
+
 
  * a -  Télécharger le script complet de mise à jour & nettoyage `.update_fedora.sh` dans `~/`
         NOTA : pensez à lancer Bleachbit en gui une première fois pour sélectionner les options.
