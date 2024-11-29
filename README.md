@@ -217,6 +217,11 @@ browser.sessionstore.interval
 
 ## **5 - Réglages de l'UI Gnome Shell**
 
+* a - Adwaita Darker :
+
+  https://github.com/varunbpatil/Adwaita-darker
+  Nota : il faut se déconnecter de Github pour avoir accès au téléchargement du dossier (??)
+
 * a - Installer diverses extensions :
   
     1 - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
