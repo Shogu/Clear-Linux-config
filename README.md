@@ -37,7 +37,10 @@ Sommaire :
   ```
   
 * d - ATTENTION : le mot de passe user doit pouvoir être saisi sur un clavier US ET un clavier FR : ne pas metre de a 
-      ou de z ou de m...
+      ou de z ou de m...Voir si ce réglage permet de régler ce problème :
+  ```
+  sudo localectl set-keymap fr
+  ```
 
 
 
