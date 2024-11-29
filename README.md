@@ -1,5 +1,7 @@
 # Clear-Linux-config
 Memo de configuration pour mon Clear Linux sur ZENBOOK 13
+
+ATTENTION : mémo en cours de rédaction, certains réglages ne sont pas adaptés à Clear Linux mais proviennent de Fedora!!
   
 Sommaire :
 
@@ -460,11 +462,10 @@ systemctl list-unit-files --type=service --state=enabled
   cat /proc/cmdline
   ```
 
-* d - Réduire le temps d'affichage du menu systemd-boot à 0 seconde ou une seconde, au choix:
+* d - Supprimer le délai d'attente du chargeur de démarrage
 
   ```
-  sudo bootctl set-timeout 0
-  
+  sudo clr-boot-manager set-timeout && sudo clr-boot-manager update
   ```
 
 
