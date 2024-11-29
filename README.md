@@ -447,12 +447,19 @@ systemctl list-unit-files --type=service --state=enabled
   ```
 
 
-* i - Accélérer `swupd` :
+* i - Accélérer `swupd` & faire les maj à partir de tmpfs :
   
   ```
   echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
 
   ```
+
+  ```
+sudo cp -r /var/lib/swupd /tmp/swupd
+swupd update -S /tmp/swupd && swupd 3rd-party update -S /tmp/swupd
+rm -rf /var/lib/swupd
+mv /tmp/swupd /var/lib/swupd
+```
   
 * j - Diviser le nombre de `ttys` au boot par deux :
   
