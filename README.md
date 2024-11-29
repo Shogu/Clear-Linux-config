@@ -453,6 +453,12 @@ systemctl list-unit-files --type=service --state=enabled
   cat /proc/cmdline
   ```
 
+* b - Activer fstrim sur le SSD :
+
+  ```
+  systemctl enable fstrim.timer
+  ```
+
 * d - Supprimer le délai d'attente du chargeur de démarrage
 
   ```
