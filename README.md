@@ -364,50 +364,31 @@ systemctl list-unit-files --type=service --state=enabled
 * h - Alléger les journaux système et les mettre en RAM :
   
   ```
-  sudo gnome-text-editor /etc/systemd/journald.conf
+  sudo gnome-text-editor /usr/lib/systemd/journald.conf.d/*.conf
   ```
+  et saisir `Storage=volatile`
   
-     puis remplacer le contenu du fichier par celui du fichier `journald.conf.txt` & relancer le service :
+     ou remplacer le contenu du fichier par celui du fichier `journald.conf.txt` & relancer le service :
   
   ```
   sudo systemctl restart systemd-journald
   ```
   
-* j - Supprimer les `coredump` en éditant systemd :
+* j - Supprimer les `coredump`:
   
   ``` 
-  sudo gnome-text-editor /etc/systemd/coredump.conf.d/
+  sudo ln -sf /dev/null /usr/lib/sysctl.d/50-coredump.conf
   ```
-     Editer le fichier comme suit :
+
+  Ou bien checker s'il est préférable ou pas d'éditer le fichier comme suit :
   
   ```
   [Coredump]
   Storage=none
   ProcessSizeMax=0
   ```
-     et supprimer le service dans le noyau ```kernel```  avec la commande :
+     
 
-  ```
-  sudo ln -sf /dev/null /usr/lib/sysctl.d/50-coredump.conf
-   
-  ```
-     puis
-
-  ```
-  sudo gnome-text-editor /etc/sysctl.d/50-coredump.conf
-  ```
-     et y inscrire :
-
-  ```
-  kernel.core_pattern=|/bin/false
-  ```
-  
-     Enfin configurer `ulimit` pour désactiver les core dumps au niveau utilisateur :
-  
-  ```
-  sudo gnome-text-editor /etc/security/limits.conf
-  ```
-     puis coller : `* hard core 0`
 
 * k - Supprimer le `watchdog` et blacklister les pilotes inutiles `Nouveau` & `ELAN:Fingerprint` : éditer le fichier 
       suivant :
