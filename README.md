@@ -60,10 +60,11 @@ Sommaire :
 * - b - Installer Maestral pour Dropbox :
     ```
     python3 -m venv maestral-venv
-    source maestral-venv/bin/activate
+    mv maestral-venv .maestral-venv
+    source .maestral-venv/bin/activate
     python3 -m pip install --upgrade 'maestral[gui]'
     ```
-    Puis lancer Maestral avec `maestral gui`, cacher le dossier source et mettre une icone au dossier Dropbox
+    Puis lancer Maestral avec `maestral gui` et mettre une icone au dossier Dropbox
 
 * b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + 
       stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
