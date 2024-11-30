@@ -62,7 +62,7 @@ Sommaire :
     python3 -m venv maestral-venv
     mv maestral-venv .maestral-venv
     source .maestral-venv/bin/activate
-    python3 -m pip install --upgrade 'maestral[gui]'
+    sudo python3 -m pip install --upgrade 'maestral[gui]'
     ```
     Puis lancer Maestral avec `maestral gui` et mettre une icone au dossier Dropbox
 
