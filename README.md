@@ -55,9 +55,16 @@ Sommaire :
   org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments
   ```
 
-     Y ajouter `Opera, Papers, Loupe, Nicotine+, Dropbox, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
-  
-  
+     Y ajouter `Opera, Papers, Loupe, Nicotine+, Web, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
+
+* - b - Installer Maestral pour Dropbox :
+    ```
+    python3 -m venv maestral-venv
+    source maestral-venv/bin/activate
+    python3 -m pip install --upgrade 'maestral[gui]'
+    ```
+    Puis lancer Maestral avec `maestral gui`, cacher le dossier source et mettre une icone au dossier Dropbox
+
 * b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + 
       stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
   
@@ -99,7 +106,7 @@ Sommaire :
 * a - Supprimer les bundles inutiles :
 
   ```
-  sudo swupd bundle-remove x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
+  sudo swupd bundle-remove firefox x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
   ```
 
 * b - Supprimer les entrées des logiciels inutiles mais impossibles à supprimer : lancer Menu Principal et masquer les entrées. En profiter pour mettre l'icone de Gnome-terminal pour Console, et pour renommer les applis.
@@ -110,7 +117,7 @@ Sommaire :
   ```
   
 
-## **4 - Réglages des navigateurs Opera & Firefox**
+## **4 - Réglages du navigateur Opera**
 
 * a - Passer Opera en navigateur par défaut dans Gnome : 
   ```
@@ -192,33 +199,6 @@ Sommaire :
     
      [Raindrop](https://app.raindrop.io/my/0)
   
-
-
-* j - Extensions pour Firefox :
-
-     [uBlock Origin](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/)
-  
-     [Autotab Discard](https://addons.mozilla.org/fr/firefox/addon/auto-tab-discard/)
-
-     [Raindrop](https://raindrop.io/r/extension/firefox) et supprimer `Pocket` de Firefox avec `extensions.pocket.enabled` dans `about:config` puis supprimer le raccourci dans la barre.
-  
-     [Undo Close Tab Button](https://addons.mozilla.org/firefox/addon/undoclosetabbutton)
-
-     [LocalCDN](https://addons.mozilla.org/fr/firefox/addon/localcdn-fork-of-decentraleyes/)
-
-
-* l - Activer ``openh264`` dans les plugins firefox.
-
-* m - Réduire l'intervalle de sauvegarde des sessions Firefox en la passant à `600000` avec 
-      `about:config`:
-
-```
-browser.sessionstore.interval
-```
-
-* n - Fouuiller dans cette page :
-  https://wiki.archlinux.org/title/Firefox/Tweaks
-
 
 
 
