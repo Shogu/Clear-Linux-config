@@ -1,3 +1,4 @@
+pkexec powertop --auto-tune && pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 5>" && notify-send "Mode Powertop activé"
 # Clear-Linux-config
 Memo de configuration pour mon Clear Linux sur ZENBOOK 13
 
@@ -265,19 +266,19 @@ Sommaire :
 ******** Rajouter des toggles au menu de Gnome-Shell ********
      
     
-* p - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette 
-      commande pour le toggle activé :
+* p - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette commande pour le toggle activé :
   
-  ```
-  pkexec powertop --auto-tune && pkexec sh -c ‘echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo’ && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 5>"() && notify-send “Mode Powertop activé”
-  ```
+```
+pkexec powertop --auto-tune && pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 5>" && notify-send "Mode Powertop activé"
+```
   
-     Et cette commande pour le toggle désactivé :
+Et cette commande pour le toggle désactivé :
       
-  ```
-  pkexec sh -c ‘echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo’ && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness " <int32 2O>"() && && notify-send “Turbo Boost réactivé”
-  ```
-     Enfin rentrer le nom de l'icone : `power-profile-power-saver-symbolic` 
+```
+pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 12>" && notify-send "Turbo Boost réactivé"
+```
+     
+  Enfin rentrer le nom de l'icone : `power-profile-power-saver-symbolic` 
 
  
 * q - Créer un toggle `Performance` pour switcher de Powersave à Performance :
