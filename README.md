@@ -421,6 +421,18 @@ systemctl list-unit-files --type=service --state=enabled
   systemctl enable fstrim.timer
   ```
 
+* c - Se donner plus de marge de swap : passer le swap à 512 Mo
+
+  ```
+  sudo swapoff /var/swapfile 
+  sudo rm /var/swapfile 
+  sudo fallocate -l 512MiB /var/swapfile
+  sudo mkswap /var/swapfile
+  sudo chmod 0600 /var/swapfile
+  sudo swapon /var/swapfile
+  ```
+  Controler avec `free -h`
+  
 * d - Supprimer le délai d'attente du chargeur de démarrage
 
   ```
