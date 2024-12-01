@@ -239,21 +239,17 @@ Sommaire :
 
 
 
-* e - Raccourcis à éditer dans Gnome : mettre ```x-terminal-emulator``` à la place de la touche Exposant, et la 
+* e - Raccourcis à éditer dans Gnome : mettre ```kgx``` à la place de la touche Exposant, et la 
       commande ```flatpak run net.nokyan.Resources``` pour la combinaison ```ctrl-alt-supp```.
 
-* f - Passer Gnome-text-editor en `theme LIGHT`, puis  régler gnome-terminal (police, raccourci copier-coller, 
-      curseur, et surtout `palette prédéfinie=Gnome Clair` & `Désactiver la barre de défilement`.
-
-  
-* g - Améliorer  Celluloid :
+* f - Améliorer  Celluloid :
     - inscrire `hwdec=auto-safe` ou `vo=gpu-next`dans Paramètres --> Divers --> Options supplémentaires
     - installer les deux scripts lua suivants pour la musique :
       [Visualizer](https://www.dropbox.com/scl/fi/bbwlvfhtjnu8sgr4yoai9/visualizer.lua?rlkey=gr3bmjnrlexj7onqrxzjqxafl&dl=0)
       [Delete File avec traduction française](https://www.dropbox.com/scl/fi/c2cacmw2a815husriuvc1/delete_file.lua?rlkey=6b9d352xtvybu685ujx5mpv7v&dl=0)
       - activer l'option `focus` et `toujours afficher les boutons de titre`
   
-* j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le palcer dans `~/`, puis 
+* j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis 
       changer les polices au profit de `Noto Sans 12` ou `Monospace 11`
 
 
