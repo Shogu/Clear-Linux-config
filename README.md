@@ -211,6 +211,9 @@ Sommaire :
   https://github.com/varunbpatil/Adwaita-darker
   Nota : il faut se déconnecter de Github pour avoir accès au téléchargement du dossier (??)
 
+* b - Curseurs Bibata :
+      https://github.com/ful1e5/Bibata_Cursor?tab=readme-ov-file
+
 * a - Installer diverses extensions :
   
     1 - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
