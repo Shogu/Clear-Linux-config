@@ -274,7 +274,8 @@ Sommaire :
 
  * g - Rajouter des toggles au menu de Gnome-Shell
    
-   1 - Créer un toggle `Performance` pour switcher de Powersave à Performance :
+   1 - Créer un toggle `Performance` pour switcher de 
+       Powersave à Performance :
   ```
   echo performance | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Performance activé”
   ```
@@ -283,7 +284,12 @@ Sommaire :
   ```
   Icone :  `power-profile-performance-symbolic`
    
-   2 - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette commande pour le toggle activé :
+   2 - Créer un toggle `Powertop` qui va : lancer 
+       powertop en `auto-tune` après avoir lancé 
+       pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de 
+       batterie,  baisser la luminosité sur 5%, enfin 
+       désactiver le Turbo Boost du processeur: 
+       rentrer cette commande pour le toggle activé :
   
 ```
 pkexec powertop --auto-tune && pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 5>" && notify-send "Mode Powertop activé"
@@ -314,39 +320,18 @@ pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
 * f - Supprimer et masquer les services inutiles :
   
   ```
-  sudo systemctl mask NetworkManager-wait-online.service auditd.service ModemManager.service avahi-daemon.service 
-  plymouth-quit-wait.service switcheroo-control.service sys-kernel-tracing.mount sys-kernel-debug.mount httpd.service 
-  mdmonitor.service mdmonitor.service raid-check.timer sssd-kcm.service pcscd raid-check.timer fwupd
-  avahi-daemon.socket
-  ```
-  
-     et désactiver le Bluetooth pour l' activer à la volée (voir script dans la rubrique UI Gnome) + cups :
-  
-  ```
-  sudo systemctl disable bluetooth.service cups
-  ```
-  
+  sudo systemctl mask irqbalance.service ModemManager.service cups.service sys-kernel-debug.mount sys-kernel-tracing.mount
 
-     Enfin, reboot puis controle de l'état des services avec :
-  
   ```
-  systemd-analyze blame | grep -v '\.device$'
-  ```
-
-     et :
-
-```
-systemctl list-unit-files --type=service --state=enabled
-```
   
-* h - Alléger les journaux système et les mettre en RAM :
+* h - Mettre les journaux système en RAM :
   
   ```
   sudo gnome-text-editor /usr/lib/systemd/journald.conf.d/*.conf
   ```
   et saisir `Storage=volatile`
   
-     ou remplacer le contenu du fichier par celui du fichier `journald.conf.txt` & relancer le service :
+  Puis relancer le service :
   
   ```
   sudo systemctl restart systemd-journald
@@ -435,14 +420,8 @@ systemctl list-unit-files --type=service --state=enabled
   echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
   ```
   
-* j - Diviser le nombre de `ttys` au boot par deux :
-  
-  ```
-  sudo gnome-text-editor /etc/systemd/logind.conf
-  ```
-     puis editer `NautoVTS=3`
 
-* k - Vérifier que le système utilise bien les DNS du routeur Xiaomi (192.168.31.1) :
+* f - Vérifier que le système utilise bien les DNS du routeur Xiaomi (192.168.31.1) :
 
   ```
   nmcli dev show |grep DNS
@@ -466,7 +445,6 @@ sudo swupd verify --fix --picky
 
 
 
- * a -  Télécharger le script complet de mise à jour & nettoyage `.update_fedora.sh` dans `~/`
-        NOTA : pensez à lancer Bleachbit en gui une première fois pour sélectionner les options.
+
    
 
