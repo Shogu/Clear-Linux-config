@@ -327,7 +327,7 @@ pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
 * f - Supprimer et masquer les services inutiles :
   
   ```
-  sudo systemctl mask irqbalance.service ModemManager.service cups.service sys-kernel-debug.mount sys-kernel-tracing.mount
+  sudo systemctl mask irqbalance.service ModemManager.service cups.service  cups.socket sys-kernel-debug.mount sys-kernel-tracing.mount
 
   ```
   
