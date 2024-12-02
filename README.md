@@ -68,11 +68,15 @@ Sommaire :
     ```
     Puis lancer Maestral avec `maestral gui` et mettre une icone au dossier Dropbox. Vérifier le démarrage automatique avec Tweaks.
 
-* c - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le 
+* c - S'assurer que les options du kernel ont bien été pruises en compte lors de l'install' :
+    ```
+    cat /proc/cmdline
+    ```
+* d - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le 
       wallpaper par défaut est cropé...)
   
 
-* d - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
+* e - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
       créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
   
   ```
@@ -80,14 +84,14 @@ Sommaire :
   ```
   
 
-* e - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte 
+* f - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte 
       Google dans Gnome :
 
   ```
   rm -v ~/.local/share/keyrings/*.keyring && reboot
   ```
 
-* f - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et 
+* g - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et 
       la mettre dans /home. Puis permettre le login automatique en contournant comme suit le bug de Clear Linux :
 
   ```
@@ -346,36 +350,12 @@ pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   sudo ln -sf /dev/null /usr/lib/sysctl.d/50-coredump.conf
   ```
 
-  Ou bien checker s'il est préférable ou pas d'éditer le fichier comme suit :
-  
-  ```
-  [Coredump]
-  Storage=none
-  ProcessSizeMax=0
-  ```
-     
 
-
-* k - Supprimer le `watchdog` et blacklister les pilotes inutiles `Nouveau` & `ELAN:Fingerprint` : éditer le fichier 
-      suivant :
-  
-  ```
-  sudo gnome-text-editor /etc/sysctl.conf
-  ```
-     et ajouter :
-  
-  ```
-  kernel.nmi_watchdog=0
-  ```
-     Puis créer un fichier `blacklist` ```sudo gnome-text-editor /etc/modprobe.d/blacklist.conf``` et l'éditer :
-  
-  ```
-  blacklist iTCO_vendor_support
-  blacklist wdat_wdt
-  blacklist intel_pmc_bxt
+* k - ????? blacklister les pilotes inutiles `Nouveau` & `ELAN:Fingerprint` : éditer le fichier 
+ 
   blacklist nouveau
   blacklist ELAN:Fingerprint
-  ```
+  
 
   
 * m - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
@@ -432,12 +412,6 @@ pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
 
 
   
-     ??????Au reboot, contrôler le fichier de boot de `systemd-boot` avec la commande :
-  
-  ```
-  cat /proc/cmdline
-  ```
-
 
 
 
