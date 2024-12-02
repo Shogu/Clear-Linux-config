@@ -252,7 +252,7 @@ p
   
 * j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis 
       changer les polices au profit de `Liberation Mono 12`.
-      Fichier input.rc :
+      Fichier inputrc :
       ```
       set completion-ignore-case on       # Ignore la casse lors de la complétion
       set show-all-if-ambiguous on        # Affiche toutes les options si ambiguïté
