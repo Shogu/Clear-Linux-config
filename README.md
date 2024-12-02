@@ -261,11 +261,21 @@ Sommaire :
      Fichier inputrc :
   
       ```
-      set completion-ignore-case on       # Ignore la casse lors de la complétion
-      set show-all-if-ambiguous on        # Affiche toutes les options si ambiguïté
-      set show-all-if-unmodified on       # Affiche toutes les options si la ligne n'a pas changé
-      set visible-stats on                # Montre des infos comme les permissions (ls-like)
-      TAB: menu-complete                  # Permet de parcourir les suggestions avec TAB
+      # Ignore la casse lors de la complétion
+      set completion-ignore-case on
+
+      # Affiche toutes les options si ambiguïté
+      set show-all-if-ambiguous on
+
+      # Affiche toutes les options si la ligne n'a pas changé
+      set show-all-if-unmodified on
+
+      # Montre des infos comme les permissions (ls-like)
+      set visible-stats on
+
+      # Permet de parcourir les suggestions avec TAB
+      TAB: menu-complete
+
       ```
 
 * f - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
