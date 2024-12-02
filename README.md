@@ -245,8 +245,7 @@ Sommaire :
         /home/user/.local/share/gnome-shell/extensions.
 
 
-* c - Raccourcis à éditer dans Gnome : mettre `kgx` à la place de la touche Exposant, et la commande ```flatpak run net.nokyan.Resources``` pour la 
-      combinaison `ctrl-alt-supp`.
+* c - Raccourcis à éditer dans Gnome : mettre `kgx` à la place de la touche Exposant, et la commande ```flatpak run net.nokyan.Resources``` pour la combinaison `ctrl-alt-supp`.
 
 * d - Améliorer  Celluloid :
     - inscrire `hwdec=auto-safe` ou `vo=gpu-next`dans Paramètres --> Divers --> Options supplémentaires
@@ -275,7 +274,6 @@ Sommaire :
 
       # Permet de parcourir les suggestions avec TAB
       TAB: menu-complete
-
       ```
 
 * f - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
@@ -294,12 +292,7 @@ Sommaire :
   ```
   Icone :  `power-profile-performance-symbolic`
    
-   2 - Créer un toggle `Powertop` qui va : lancer 
-       powertop en `auto-tune` après avoir lancé 
-       pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de 
-       batterie,  baisser la luminosité sur 5%, enfin 
-       désactiver le Turbo Boost du processeur: 
-       rentrer cette commande pour le toggle activé :
+   2 - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur : rentrer cette commande pour le toggle activé :
   
 ```
 pkexec powertop --auto-tune && pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 5>" && notify-send "Mode Powertop activé"
