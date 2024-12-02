@@ -255,8 +255,8 @@ Sommaire :
       [Delete File avec traduction française](https://www.dropbox.com/scl/fi/c2cacmw2a815husriuvc1/delete_file.lua?rlkey=6b9d352xtvybu685ujx5mpv7v&dl=0)
       - activer l'option `focus` et `toujours afficher les boutons de titre`
   
-* e - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis changer les polices au profit de `Liberation Mono 
-      12`.
+* e - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis 
+      changer les polices au profit de `Liberation Mono 12`.
   
      Fichier inputrc :
   
