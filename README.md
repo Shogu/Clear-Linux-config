@@ -58,20 +58,21 @@ Sommaire :
 
      Y ajouter `Opera, Papers, Loupe, Nicotine+, Web, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
 
-* - b - Installer Maestral pour Dropbox :
+* b - Installer Maestral pour Dropbox :
+  
     ```
     python3 -m venv maestral-venv
     mv maestral-venv .maestral-venv
     source .maestral-venv/bin/activate
     sudo python3 -m pip install --upgrade 'maestral[gui]'
     ```
-    Puis lancer Maestral avec `maestral gui` et mettre une icone au dossier Dropbox
+    Puis lancer Maestral avec `maestral gui` et mettre une icone au dossier Dropbox. Vérifier le démarrage automatique avec Tweaks.
 
-* b - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + 
-      stretch pour le fond d'écran, sans quoi le wallpaper par défaut est          cropé...)
+* c - Régler le système avec `Paramètres` puis `Ajustements` (lancement au boot de Dropbox + rendu de la police + stretch pour le fond d'écran, sans quoi le 
+      wallpaper par défaut est cropé...)
   
 
-* c - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
+* d - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
       créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
   
   ```
@@ -79,20 +80,20 @@ Sommaire :
   ```
   
 
-* d - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte 
+* e - Supprimer le mot de passe au démarrage avec le logiciel Mots de passe puis penser à reconnecter le compte 
       Google dans Gnome :
 
   ```
   rm -v ~/.local/share/keyrings/*.keyring && reboot
   ```
 
-* e - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et 
+* f - Configurer le compte utilisateur : télécharger la vignette user `user-astronaut`, la rendre invisible avec . et 
       la mettre dans /home. Puis permettre le login automatique en contournant comme suit le bug de Clear Linux :
 
   ```
   sudo gnome-text-editor  /etc/gdm/custom.conf
   ```
-p
+
      Et saisir :
 
   ```
@@ -111,11 +112,13 @@ p
   sudo swupd bundle-remove firefox x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
   ```
 
-* b - Supprimer les entrées des logiciels inutiles mais impossibles à supprimer : lancer Menu Principal et masquer les entrées. En profiter pour mettre l'icone de Gnome-terminal pour Console, et pour renommer les applis.
+* b - Supprimer les entrées des logiciels inutiles mais impossibles à supprimer : lancer Menu Principal et masquer les entrées. En profiter pour mettre l'icone de 
+  Gnome-terminal pour Console, et pour renommer les applis.
 
   Nota : il est possible de supprimer les binaires des logiciels suivants, swupd-repair les remettra en place si besoin :
   ```
-  cd /usr/bin/ && sudo rm system-config-printer yelp nm-connection-editor gnome-connections gnome-terminal emoji-picker gnome-extensions pavucontrol idle3 idle3.13 simple-scan
+  cd /usr/bin/ && sudo rm system-config-printer yelp nm-connection-editor gnome-connections gnome-terminal emoji-picker gnome-extensions pavucontrol idle3 
+  idle3.13 simple-scan
   ```
   
 
@@ -138,9 +141,7 @@ p
 
 * d - Passer Opera sur `wayland` avec le flag `chrome://flags/#ozone-platform-hint` & `opera://flags/#wayland-per-window-scaling`, puis activer l'`autoclose` de xwayland (voir plus bas).
   
-* e - Créer les `tuiles` dans la page d'accueil
-
-* f - Extensions Opera :
+* e - Extensions Opera :
 
    1 - [Decentraleyes](https://addons.opera.com/fr/extensions/details/decentraleyes/)
 
@@ -153,10 +154,9 @@ p
    5 - [Tiny Suspender](https://chromewebstore.google.com/detail/tiny-suspender/bbomjaikkcabgmfaomdichgcodnaeecf)
   
 
-   
-* g - Désactiver les options inutiles et `Faire defiler les onglets dans l'ordre d'utilisation`
+* f - Désactiver les options inutiles et `Faire defiler les onglets dans l'ordre d'utilisation`
   
-* h - Dans `about:flags`, désactiver les options suivantes :
+* g - Dans `about:flags`, désactiver les options suivantes :
   
 
   1 - disable Pinboard : `chrome://flags/#pinboard` 
@@ -194,7 +194,7 @@ p
 
  
 
-* i - Créer dans la barre latérale d'Opera les sites internet suivants APRES s'être connecté à 
+* h - Créer dans la barre latérale d'Opera les sites internet suivants APRES s'être connecté à 
       Google :
   
      [Gmail](https://mail.google.com/mail/u/0/?pli=1#inbox)
@@ -207,15 +207,16 @@ p
 
 ## **5 - Réglages de l'UI Gnome Shell**
 
-* a - Adwaita Darker :
+* a - Thème plus sombre et curseurs :
+  
+     `Adwaita Darker` : https://github.com/varunbpatil/Adwaita-darker
+     Nota : il faut se déconnecter de Github pour avoir accès au téléchargement du dossier (??)
 
-  https://github.com/varunbpatil/Adwaita-darker
-  Nota : il faut se déconnecter de Github pour avoir accès au téléchargement du dossier (??)
+     `Curseurs Bibata` : https://github.com/ful1e5/Bibata_Cursor?tab=readme-ov-file
+  
+     Les activer avec gnome-tweaks et l'extension Thèmes
 
-* b - Curseurs Bibata :
-      https://github.com/ful1e5/Bibata_Cursor?tab=readme-ov-file
-
-* a - Installer diverses extensions :
+* b - Installer diverses extensions :
   
     1 - [Appindicator](https://extensions.gnome.org/extension/615/appindicator-support/)
 
@@ -238,20 +239,24 @@ p
   
    10 - [Grand Theft Focus](https://extensions.gnome.org/extension/5410/grand-theft-focus/)
 
+   11 - [Auto Screen Brightness](https://extensions.gnome.org/extension/7311/auto-screen-brightness/)
+
+   12 - Extension maison inspirée d'une option de Gnome 4x : Hide Search Overview (à télécharger depuis le dossier `scripts`), et la coller dans le dossier 
+        /home/user/.local/share/gnome-shell/extensions.
 
 
-* e - Raccourcis à éditer dans Gnome : mettre ```kgx``` à la place de la touche Exposant, et la 
-      commande ```flatpak run net.nokyan.Resources``` pour la combinaison ```ctrl-alt-supp```.
+* c - Raccourcis à éditer dans Gnome : mettre `kgx` à la place de la touche Exposant, et la commande ```flatpak run net.nokyan.Resources``` pour la 
+      combinaison `ctrl-alt-supp`.
 
-* f - Améliorer  Celluloid :
+* d - Améliorer  Celluloid :
     - inscrire `hwdec=auto-safe` ou `vo=gpu-next`dans Paramètres --> Divers --> Options supplémentaires
     - installer les deux scripts lua suivants pour la musique :
       [Visualizer](https://www.dropbox.com/scl/fi/bbwlvfhtjnu8sgr4yoai9/visualizer.lua?rlkey=gr3bmjnrlexj7onqrxzjqxafl&dl=0)
       [Delete File avec traduction française](https://www.dropbox.com/scl/fi/c2cacmw2a815husriuvc1/delete_file.lua?rlkey=6b9d352xtvybu685ujx5mpv7v&dl=0)
       - activer l'option `focus` et `toujours afficher les boutons de titre`
   
-* j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis 
-      changer les polices au profit de `Liberation Mono 12`.
+* e - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis changer les polices au profit de `Liberation Mono 
+      12`.
   
      Fichier inputrc :
   
@@ -262,53 +267,44 @@ p
       set visible-stats on                # Montre des infos comme les permissions (ls-like)
       TAB: menu-complete                  # Permet de parcourir les suggestions avec TAB
       ```
-  
 
+* f - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les vidéos vers Vidéos en supprimant le sous- 
+      dossier d'origine : en faire un raccourci avec l'éditeur de menu et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
-* l - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
-      vidéos vers Vidéos en supprimant le sous-dossier d'origine : en faire un raccourci avec l'éditeur de menu et 
-      lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
-
-
-
-
-
-
-******** Rajouter des toggles au menu de Gnome-Shell ********
-     
-    
-* p - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette commande pour le toggle activé :
+ * g - Rajouter des toggles au menu de Gnome-Shell
+   
+      1 - Créer un toggle `Powertop` qui va : lancer powertop en `auto-tune` après avoir lancé pendant une heure la commande `sudo powertop --calibrate` pour 
+          économiser encore plus de batterie,  baisser la luminosité sur 5%, enfin désactiver le Turbo Boost du processeur: rentrer cette commande pour le toggle 
+          activé :
   
 ```
 pkexec powertop --auto-tune && pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 5>" && notify-send "Mode Powertop activé"
 ```
   
-Et cette commande pour le toggle désactivé :
+   Et cette commande pour le toggle désactivé :
       
 ```
 pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Set org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 12>" && notify-send "Turbo Boost réactivé"
-```
-     
+```     
   Enfin rentrer le nom de l'icone : `power-profile-power-saver-symbolic` 
+  Note : en cas de problème lors du copier-coller du fait de la longueur de la ligne, voir le fichier `pkexec_powertop_autotune` dans le dossier `script`
 
- 
-* q - Créer un toggle `Performance` pour switcher de Powersave à Performance :
+   2 - Créer un toggle `Performance` pour switcher de Powersave à Performance :
 
   ```
   echo performance | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Performance activé”
   ```
-
   ```
   echo powersave | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && notify-send “Mode Powersave activé”
   ```
-  
   Icone :  `power-profile-performance-symbolic`
+
 
 
 ## **6 - Allégement du système**
 
   
-* c - Supprimer les autostarts inutiles :
+* a - Supprimer les autostarts inutiles :
   
   ```
   sudo rm -rf /usr/share/gdm/greeter/autostart/orca.desktop
@@ -346,13 +342,6 @@ pkexec sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
 systemctl list-unit-files --type=service --state=enabled
 ```
   
-* g - Supprimer l'autoboot d'Orca si besoin :
-  
-  ```
-  rm -rf /usr/share/gdm/greeter/autostart/orca.desktop
-  ```
-  
-
 * h - Alléger les journaux système et les mettre en RAM :
   
   ```
@@ -418,14 +407,6 @@ systemctl list-unit-files --type=service --state=enabled
   org.gnome.mutter experimental-features
   ```
 
-
-  
-     Au reboot, contrôler le fichier de boot de `systemd-boot` avec la commande :
-  
-  ```
-  cat /proc/cmdline
-  ```
-
 * b - Activer fstrim sur le SSD :
 
   ```
@@ -451,19 +432,11 @@ systemctl list-unit-files --type=service --state=enabled
   ```
 
 
-* i - Accélérer `swupd` & faire les maj à partir de tmpfs :
+* e - Accélérer `swupd` :
   
   ```
   echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
-
   ```
-
-  ```
-sudo cp -r /var/lib/swupd /tmp/swupd
-swupd update -S /tmp/swupd && swupd 3rd-party update -S /tmp/swupd
-rm -rf /var/lib/swupd
-mv /tmp/swupd /var/lib/swupd
-```
   
 * j - Diviser le nombre de `ttys` au boot par deux :
   
@@ -478,6 +451,13 @@ mv /tmp/swupd /var/lib/swupd
   nmcli dev show |grep DNS
   ```
 
+
+  
+     ??????Au reboot, contrôler le fichier de boot de `systemd-boot` avec la commande :
+  
+  ```
+  cat /proc/cmdline
+  ```
 
 
 
