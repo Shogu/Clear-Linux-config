@@ -92,7 +92,7 @@ Sommaire :
   ```
   sudo gnome-text-editor  /etc/gdm/custom.conf
   ```
-
+p
      Et saisir :
 
   ```
@@ -251,7 +251,16 @@ Sommaire :
       - activer l'option `focus` et `toujours afficher les boutons de titre`
   
 * j - Améliorer l'autocomplétion du terminal en téléchargeant le fichier`.inputrc` et le placer dans `~/`, puis 
-      changer les polices au profit de `Noto Sans 12` ou `Monospace 11`
+      changer les polices au profit de `Liberation Mono 12`.
+      Fichier input.rc :
+      ```
+      set completion-ignore-case on       # Ignore la casse lors de la complétion
+      set show-all-if-ambiguous on        # Affiche toutes les options si ambiguïté
+      set show-all-if-unmodified on       # Affiche toutes les options si la ligne n'a pas changé
+      set visible-stats on                # Montre des infos comme les permissions (ls-like)
+      TAB: menu-complete                  # Permet de parcourir les suggestions avec TAB
+      ```
+  
 
 
 * l - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
