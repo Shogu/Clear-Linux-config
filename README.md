@@ -357,16 +357,15 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
 
 
 * k - Blacklister les pilotes inutiles `btusb`, 
-      `bluetooth` & 'idma64' et 'i2c designware', ces derniers consommant beaucoup de batterie pour rien (modules du touchpad, les désactiver semble ne rien changer à l'usage du touchpad)
+      `bluetooth` & 'idma64', ce dernier consommant beaucoup de batterie pour rien (module du touchpad, le désactiver semble ne rien changer à l'usage du touchpad)
 :
 
   ```
-  sudo gnome-text-editor /usr/libmodprobe.d/blacklist-ogu.conf
+  sudo gnome-text-editor /usr/lib/modprobe.d/blacklist-ogu.conf
   ```
   et inscrire : blacklist btusb
                 blacklist bluetooth
                 blacklist idma64
-                blacklist i2c_designware.1
                 blacklist ELAN:Fingerprint
 
   Puis mettre à jour le bootloader :
