@@ -284,7 +284,12 @@ Sommaire :
       vidéos vers Vidéos en supprimant le sous-dossier d'origine : en faire un raccourci avec l'éditeur de menu et 
       lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
- * g - Rajouter des toggles au menu de Gnome-Shell
+* g - Imiter nautilus-dropbox :
+      Télécharger et installer dans le dossier scripts de Nautilus le fichier OuvrirAvecDropbox qui imite nautilus- 
+      dropbox en ouvrant le fichier selectionné dans la dropbox sur le navigateur, pour mléditer et/ou copierècoller 
+      son lien de partage
+
+ * h - Rajouter des toggles au menu de Gnome-Shell
    
    1 - Créer un toggle `Performance` pour switcher de 
        Powersave à Performance :
