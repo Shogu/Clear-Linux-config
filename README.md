@@ -377,7 +377,7 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   SUBSYSTEM=="usb", ATTR{idVendor}=="04f3", ATTR{idProduct}=="0c6e", ATTR{authorized}="0"
 
   ```
-Puis relancer les règles udev avec :
+  Penser à "enregstrer sous", sans quoi cela le marche pas (??) puis relancer les règles udev avec :
 
   ```
   sudo udevadm control --reload-rules
