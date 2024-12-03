@@ -356,14 +356,18 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   ```
 
 
-* k - Blacklister les pilotes inutiles `btusb` & 
-      `bluetooth` :
+* k - Blacklister les pilotes inutiles `btusb`, 
+      `bluetooth` & 'idma64', ce dernier consommant beaucoup de batterie pour rien (mùodule du touchpad, le désactiver semble ne rien changer à lusage du touchpad)
+:
 
   ```
-  sudo gnome-text-editor /etc/modprobe.d/blacklist-elan.conf
+  sudo gnome-text-editor /usr/libmodprobe.d/blacklist-ogu.conf
   ```
   et inscrire : blacklist btusb
                 blacklist bluetooth
+                blacklist idma64
+                blacklist 
+                blacklist ELAN:Fingerprint
 
   Puis mettre à jour le bootloader :
 
@@ -382,7 +386,7 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   SUBSYSTEM=="usb", ATTR{idVendor}=="04f3", ATTR{idProduct}=="0c6e", ATTR{authorized}="0"
 
   ```
-  Penser à "enregstrer sous", sans quoi cela le marche pas (??) puis relancer les règles udev avec :
+  Penser à "enregstrer sous", sans quoi cela ne marche pas (??) puis relancer les règles udev avec :
 
   ```
   sudo udevadm control --reload-rules
