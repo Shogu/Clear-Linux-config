@@ -384,6 +384,27 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   sudo udevadm trigger
   ```
   
+* m - Activer la gestion d'énergie du module RAID (à partir de l'output Powertop) :
+
+* 
+  ```
+  sudo gnome-text-editor /etc/udev/rules.d/99-power-control.rules
+  ```
+  et y ajouter la règle suivante :
+
+  ```
+  ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:00:0e.0", RUN+="/bin/bash -c 'echo auto > /sys$devpath/power/control'"
+
+  ```
+  Penser à "enregstrer sous", sans quoi cela le marche pas (??) puis relancer les règles udev avec :
+
+  ```
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+  ```
+   
+
+  
 * m - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 
 
