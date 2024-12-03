@@ -351,12 +351,38 @@ pkexec sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo' && gdbus c
   ```
 
 
-* k - ????? blacklister les pilotes inutiles `Nouveau` & `ELAN:Fingerprint` : éditer le fichier 
- 
-  blacklist nouveau
-  blacklist ELAN:Fingerprint
-  
+* k - Blacklister les pilotes inutiles `btusb` & 
+      `bluetooth` :
 
+  ```
+  sudo gnome-text-editor /etc/modprobe.d/blacklist-elan.conf
+  ```
+  et inscrire : blacklist btusb
+                blacklist bluetooth
+
+  Puis mettre à jour le bootloader :
+
+  ```
+  sudo clr-boot-manager update
+  ```
+
+  Blacklister le module fingeprint ELAN :
+
+  ```
+  sudo gnome-text-editor /etc/udev/rules.d/99-disable-elan-fingerprint.rules
+  ```
+  et y ajouter la règle suivante :
+
+  ```
+  SUBSYSTEM=="usb", ATTR{idVendor}=="04f3", ATTR{idProduct}=="0c6e", ATTR{authorized}="0"
+
+  ```
+Puis relancer les règles udev avec :
+
+  ```
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+  ```
   
 * m - Faire le tri dans `~/.local/share/`, `/home/ogu/.config/`, `/usr/share/` et `/etc/`
 
