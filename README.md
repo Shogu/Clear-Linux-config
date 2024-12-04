@@ -281,8 +281,8 @@ Sommaire :
       ```
 
 * f - Télécharger le script de `transfert des vidéos` intitulé `.transfert_videos` pour déplacer automatiquement les 
-      vidéos vers Vidéos en supprimant le sous-dossier d'origine : en faire un raccourci avec l'éditeur de menu et 
-      lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
+      vidéos vers Vidéos en supprimant le sous-dossier d'origine : en faire un raccourci avec l'éditeur de menu (sh + 
+      path + vérifier les droits du script),  et lui mettre l'icone `/usr/share/icons/Adwaita/scalable/devices/drive-multidisk.svg`
 
 * g - Imiter nautilus-dropbox :
       Télécharger et installer dans le dossier scripts de Nautilus le fichier OuvrirAvecDropbox qui imite nautilus- 
