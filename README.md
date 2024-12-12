@@ -1,29 +1,7 @@
 
 # Clear-Linux-config
 Memo de configuration pour mon Clear Linux sur ZENBOOK 13
-
-ATTENTION : mémo en cours de rédaction, certains réglages ne sont pas adaptés à Clear Linux mais proviennent de Fedora!!
-  
-Sommaire :
-
-1. [Installation](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#1---installation)
-
-2. [Réglages de base](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#2---réglages-de-base)
-
-3. [Remplacement et installation de logiciels et codecs](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#3---remplacement-et-installation-de-logiciels-et-codecs)
-
-4. [Réglages des navigateurs Opera & Firefox](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#4---réglages-des-navigateurs-opera--firefox)
-
-5. [Réglages de l'UI Gnome Shell](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#5---réglages-de-lui-gnome-shell)
-   
-6. [Allégement du système](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#6---allégement-du-système)
-
-7. [Optimisation du système](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13/blob/main/README.md#7---optimisation-du-système)
-
-8. [Maintenance de la distribution](https://github.com/Shogu/Configuration-Fedora-ASUS-Zenbook-13?tab=readme-ov-file#7---optimisation-du-système)
-
-   
-   
+     
 
 ## **1 - Installation**
 
@@ -48,15 +26,13 @@ Sommaire :
 
 ## **2 - Réglages de base**
 
-* a - dès le reboot, penser à installer les applications Flatpak, sans quoi le bug avec curl empêche de le faire plus 
-      tard (voir cette page : https://community.clearlinux.org/t/flatpak-issues-after-42630-update/10166) :
-
+* a - Applications Flatpak :
    ```
   flatpak install flathub com.mattjakeman.ExtensionManager io.github.giantpinkrobots.flatsweep net.nokyan.Resources 
   org.jdownloader.JDownloader  org.onlyoffice.desktopeditors de.haeckerfelix.Fragments
   ```
 
-     Y ajouter `Opera, Papers, Loupe, Nicotine+, Web, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
+  Y ajouter `Opera, Papers, Loupe, Nicotine+, Web, Celluloid, Gestionnaire d'extensions, Opera, Showtime ???, Menu Principal`.
 
 * b - Installer Maestral pour Dropbox :
   
@@ -77,7 +53,7 @@ Sommaire :
   
 
 * e - Régler Nautilus (ouvrir d'un seul clic, taille des icones, cacher les dossiers Bureau Public et Modèles...) & 
-      créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque         SSD sur la TV Android :
+      créer un marque-page pour `Dropbox` & pour l'accès `ftp` au disque SSD sur la TV Android :
   
   ```
   ftp://192.168.31.68:2121
@@ -113,7 +89,7 @@ Sommaire :
 * a - Supprimer les bundles inutiles :
 
   ```
-  sudo swupd bundle-remove firefox x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
+sudo swupd bundle-remove firefox x11-tools xterm xscreensaver x11vnc vim totem snapshot gnome-weather gnome-todo gnome-system-monitor gnome-photos gnome-music gnome-font-viewer gnome-characters  geary gimp evince eog emacs-x11 baobab aspell-es aspell-de Endeavour gvim gnome-terminal hardware-printing
   ```
 
 * b - Supprimer les entrées des logiciels inutiles mais impossibles à supprimer : lancer Menu Principal et masquer les entrées. En profiter pour mettre l'icone de 
@@ -286,7 +262,7 @@ Sommaire :
 
 * g - Imiter nautilus-dropbox :
       Télécharger et installer dans le dossier scripts de Nautilus le fichier OuvrirAvecDropbox qui imite nautilus- 
-      dropbox en ouvrant le fichier selectionné dans la dropbox sur le navigateur, pour mléditer et/ou copierècoller 
+      dropbox en ouvrant le fichier selectionné dans la dropbox sur le navigateur, pour éditer et/ou copier/coller 
       son lien de partage
 
  * h - Rajouter des toggles au menu de Gnome-Shell
